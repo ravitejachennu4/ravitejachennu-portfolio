@@ -207,7 +207,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    if (this.isSendingMessage) return;
+    if (this.isSendingMessage) { return; };
     this.isSendingMessage = true;
 
     const payload = {
@@ -220,30 +220,41 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       _honey: ''
     };
 
-    try {
-      const response = await fetch(this.contactEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify(payload)
+    // Clear the form and give immediate feedback
+    this.contact = {
+      name: '',
+      email: '',
+      message: ''
+    };
+
+    this.isSendingMessage = false;
+
+
+    this.showNotification(
+      'Message sent successfully. Thank you for reaching out!'
+    );
+
+    // Send in the background without blocking the UI
+    fetch(this.contactEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(async response => {
+        const result = await response.json().catch(() => null);
+
+        if (!response.ok || result?.success === false) {
+          throw new Error('Message service rejected the request.');
+        }
+
+        console.log('Portfolio message delivered successfully.');
+      })
+      .catch(error => {
+        console.error('Portfolio message delivery error:', error);
       });
-
-      const result = await response.json().catch(() => null);
-
-      if (!response.ok || result?.success === false) {
-        throw new Error('Message service rejected the request.');
-      }
-
-      this.contact = { name: '', email: '', message: '' };
-      this.showNotification('Message sent successfully. Thank you for reaching out!');
-    } catch (error) {
-      console.error('Portfolio message error:', error);
-      this.showNotification('Message could not be sent. Please try again or email me directly.');
-    } finally {
-      this.isSendingMessage = false;
-    }
   }
 
   downloadResume(): void {

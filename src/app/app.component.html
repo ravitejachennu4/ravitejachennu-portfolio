@@ -14,20 +14,25 @@
       </button>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <button *ngFor="let item of navItems" type="button" [class.active]="activeSection === item.id" (click)="scrollTo(item.id)">{{ item.label }}</button>
+        <button *ngFor="let item of navItems" type="button" [class.active]="activeSection === item.id"
+          (click)="scrollTo(item.id)">{{ item.label }}</button>
       </nav>
 
       <div class="nav-actions">
-        <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-label]="isDark ? 'Switch to light theme' : 'Switch to dark theme'">
+        <button class="theme-toggle" type="button" (click)="toggleTheme()"
+          [attr.aria-label]="isDark ? 'Switch to light theme' : 'Switch to dark theme'">
           <span class="theme-icon">{{ isDark ? '☾' : '☀' }}</span>
         </button>
-        <button class="button primary nav-cv" type="button" (click)="downloadResume()"><span>↓</span> Download Resume</button>
-        <button class="menu-button" type="button" (click)="menuOpen = !menuOpen" aria-label="Toggle navigation">☰</button>
+        <button class="button primary nav-cv" type="button" (click)="downloadResume()"><span>↓</span> Download
+          Resume</button>
+        <button class="menu-button" type="button" (click)="menuOpen = !menuOpen"
+          aria-label="Toggle navigation">☰</button>
       </div>
     </div>
 
     <nav class="mobile-nav" [class.open]="menuOpen" aria-label="Mobile navigation">
-      <button *ngFor="let item of navItems" type="button" [class.active]="activeSection === item.id" (click)="scrollTo(item.id)">{{ item.label }}</button>
+      <button *ngFor="let item of navItems" type="button" [class.active]="activeSection === item.id"
+        (click)="scrollTo(item.id)">{{ item.label }}</button>
       <button type="button" class="mobile-resume" (click)="downloadResume()">↓ Download Resume</button>
     </nav>
   </header>
@@ -38,7 +43,9 @@
         <div class="hello-pill"><span class="hello-dot"></span> Hello, I'm</div>
         <h1>Ravi Teja Chennu</h1>
         <div class="typing-title"><span>{{ typedText }}</span><i></i></div>
-        <p class="hero-description">I build polished Angular interfaces that turn complex requirements into <strong>fast, responsive and intuitive digital experiences</strong>. My work combines reusable component architecture, clean TypeScript and thoughtful UI engineering.</p>
+        <p class="hero-description">I build polished Angular interfaces that turn complex requirements into
+          <strong>fast, responsive and intuitive digital experiences</strong>. My work combines reusable component
+          architecture, clean TypeScript and thoughtful UI engineering.</p>
 
         <div class="hero-buttons">
           <button class="button primary" type="button" (click)="scrollTo('contact')">✉ Get In Touch</button>
@@ -46,16 +53,29 @@
         </div>
 
         <div class="social-links" aria-label="Social links">
-          <a *ngFor="let social of socialLinks" class="social-link" [ngClass]="social.icon" [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.name" [class.selected]="selectedSocial === social.icon" (click)="selectSocial(social.icon)">
+          <a *ngFor="let social of socialLinks" class="social-link" [ngClass]="social.icon" [href]="social.url"
+            target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.name"
+            [class.selected]="selectedSocial === social.icon" (click)="selectSocial(social.icon)">
             <span class="social-icon" [ngClass]="social.icon">
-              <svg *ngIf="social.icon === 'instagram'" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
-              <svg *ngIf="social.icon === 'linkedin'" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5V19M5 5.2v.1M10 19v-6.1c0-2.1 1.1-3.4 3-3.4 1.9 0 3 1.2 3 3.4V19M10 10v9"></path></svg>
-              <svg *ngIf="social.icon === 'facebook'" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4.5h-3c-2.8 0-4.5 1.7-4.5 4.7V11H7v3.5h2.5V20H13v-5.5h3l.6-3.5H13V9.5c0-1 .3-1.5 1-1.5Z"></path></svg>
+              <svg *ngIf="social.icon === 'instagram'" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+              <svg *ngIf="social.icon === 'linkedin'" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 8.5V19M5 5.2v.1M10 19v-6.1c0-2.1 1.1-3.4 3-3.4 1.9 0 3 1.2 3 3.4V19M10 10v9"></path>
+              </svg>
+              <svg *ngIf="social.icon === 'facebook'" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14 8h3V4.5h-3c-2.8 0-4.5 1.7-4.5 4.7V11H7v3.5h2.5V20H13v-5.5h3l.6-3.5H13V9.5c0-1 .3-1.5 1-1.5Z">
+                </path>
+              </svg>
               <span *ngIf="social.icon === 'naukri'" class="naukri-letter" aria-hidden="true">N</span>
             </span>
             <span>{{ social.name }}</span>
           </a>
-          <button class="social-link" type="button" (click)="copyEmail()"><span class="social-icon">✉</span><span>Email</span></button>
+          <button class="social-link" type="button" (click)="copyEmail()"><span
+              class="social-icon">✉</span><span>Email</span></button>
         </div>
       </div>
 
@@ -64,14 +84,15 @@
         <div class="orbit orbit-large"></div>
         <div class="orbit orbit-small"></div>
         <div class="profile-ring">
-          <img src="assets/profile-reference.png" alt="Ravi Teja" />
+          <img src="assets/RaviTeja_Photo.png" alt="Ravi Teja" />
         </div>
         <div class="profile-shine"></div>
         <div class="floating-square square-one"></div>
         <div class="floating-square square-two"></div>
         <div class="floating-dot dot-one"></div>
         <div class="floating-dot dot-two"></div>
-        <div class="hero-note"><span>BUILD</span><strong>clean</strong><span>digital</span><strong>experiences</strong><b>↗</b></div>
+        <div class="hero-note">
+          <span>BUILD</span><strong>clean</strong><span>digital</span><strong>experiences</strong><b>↗</b></div>
         <div class="availability-chip"><span></span> Open to opportunities</div>
       </div>
     </section>
@@ -81,24 +102,43 @@
       <div class="about-layout">
         <div class="about-copy">
           <h2>Engineering interfaces with <span>purpose</span></h2>
-          <p>My focus is building maintainable Angular applications where clean architecture and a refined user experience work together. I enjoy breaking complex requirements into reusable components, predictable state flows and responsive screens that feel natural across devices.</p>
-          <p>Across enterprise projects, I have worked with modern Angular patterns, TypeScript, RxJS, REST APIs and collaborative delivery practices. I also care about performance, accessibility, debugging and making interfaces easier for the next developer to extend.</p>
+          <p>My focus is building maintainable Angular applications where clean architecture and a refined user
+            experience work together. I enjoy breaking complex requirements into reusable components, predictable state
+            flows and responsive screens that feel natural across devices.</p>
+          <p>Across enterprise projects, I have worked with modern Angular patterns, TypeScript, RxJS, REST APIs and
+            collaborative delivery practices. I also care about performance, accessibility, debugging and making
+            interfaces easier for the next developer to extend.</p>
           <div class="about-tags">
-            <span>Component Architecture</span><span>Reactive UI</span><span>Responsive Design</span><span>Performance</span>
+            <span>Component Architecture</span><span>Reactive UI</span><span>Responsive
+              Design</span><span>Performance</span>
           </div>
-          <button class="button secondary small" type="button" (click)="showMoreAbout = !showMoreAbout">{{ showMoreAbout ? 'Show Less' : 'More About My Approach' }} →</button>
-          <p *ngIf="showMoreAbout" class="extra-copy">I approach frontend work as a balance between engineering discipline and visual clarity: reusable building blocks, typed data flows, clean styling, useful feedback states and careful attention to the details users notice.</p>
+          <button class="button secondary small" type="button" (click)="showMoreAbout = !showMoreAbout">{{ showMoreAbout
+            ? 'Show Less' : 'More About My Approach' }} →</button>
+          <p *ngIf="showMoreAbout" class="extra-copy">I approach frontend work as a balance between engineering
+            discipline and visual clarity: reusable building blocks, typed data flows, clean styling, useful feedback
+            states and careful attention to the details users notice.</p>
         </div>
 
         <div class="facts-grid">
-          <div class="fact"><span>⌖</span><div><small>Based in</small><strong>{{ location }}</strong></div></div>
-          <div class="fact"><span>◈</span><div><small>Professional Experience</small><strong>{{ totalExperience }}</strong></div></div>
-          <div class="fact"><span>✦</span><div><small>Angular Experience</small><strong>{{ angularExperience }}</strong></div></div>
-          <div class="fact"><span>✉</span><div><small>Email</small><strong>{{ email }}</strong></div></div>
-          <div class="fact"><span>☎</span><div><small>Mobile</small><strong>+91 {{ phone }}</strong></div></div>
+          <div class="fact"><span>⌖</span>
+            <div><small>Based in</small><strong>{{ location }}</strong></div>
+          </div>
+          <div class="fact"><span>◈</span>
+            <div><small>Professional Experience</small><strong>{{ totalExperience }}</strong></div>
+          </div>
+          <div class="fact"><span>✦</span>
+            <div><small>Angular Experience</small><strong>{{ angularExperience }}</strong></div>
+          </div>
+          <div class="fact"><span>✉</span>
+            <div><small>Email</small><strong>{{ email }}</strong></div>
+          </div>
+          <div class="fact"><span>☎</span>
+            <div><small>Mobile</small><strong>+91 {{ phone }}</strong></div>
+          </div>
         </div>
 
-        <div #codeCard class="code-card" (mousemove)="onCodeMove($event)" (mouseleave)="resetCodeCard()" [style.--tilt-x]="codeTiltX" [style.--tilt-y]="codeTiltY" [style.--rotation]="codeRotation">
+        <div #codeCard class="code-card" (mousemove)="onCodeMove($event)" (mouseleave)="resetCodeCard()"
+          [style.--tilt-x]="codeTiltX" [style.--tilt-y]="codeTiltY" [style.--rotation]="codeRotation">
           <div class="code-grid"></div>
           <div class="code-top"><span></span><span></span><span></span><b>portfolio.ts</b></div>
           <div class="code-content">
@@ -122,7 +162,8 @@
         <div>
           <div class="section-label">TECH STACK</div>
           <h2>Technical <span>Skills</span></h2>
-          <p>A practical toolkit spanning Angular frontend engineering, web architecture, APIs, data, delivery workflows and observability.</p>
+          <p>A practical toolkit spanning Angular frontend engineering, web architecture, APIs, data, delivery workflows
+            and observability.</p>
         </div>
         <div class="stack-counter"><strong>08</strong><span>skill areas</span></div>
       </div>
@@ -131,7 +172,9 @@
         <article class="skill-group" *ngFor="let group of skillGroups; trackBy: trackByTitle">
           <div class="skill-group-head">
             <div class="skill-group-icon">{{ group.icon }}</div>
-            <div><small>{{ group.eyebrow }}</small><h3>{{ group.title }}</h3></div>
+            <div><small>{{ group.eyebrow }}</small>
+              <h3>{{ group.title }}</h3>
+            </div>
           </div>
           <div class="skill-pills">
             <span *ngFor="let skill of group.skills">{{ skill }}</span>
@@ -146,10 +189,12 @@
         <div>
           <div class="section-label">MY JOURNEY</div>
           <h2>Professional <span>Experience</span></h2>
-          <p>Experience across enterprise frontend development, application support and collaborative delivery at TCS.</p>
+          <p>Experience across enterprise frontend development, application support and collaborative delivery at TCS.
+          </p>
         </div>
         <div class="resume-action">
-          <button class="button secondary small" type="button" (click)="downloadResume()"><span>↗</span> View Resume</button>
+          <button class="button secondary small" type="button" (click)="downloadResume()"><span>↗</span> View
+            Resume</button>
           <small>PDF · opens / downloads your resume</small>
         </div>
       </div>
@@ -160,7 +205,9 @@
           <span class="period">{{ item.period }}</span>
           <h3>{{ item.role }}</h3>
           <h4>{{ item.company }} · {{ item.type }}</h4>
-          <ul><li *ngFor="let bullet of item.bullets">{{ bullet }}</li></ul>
+          <ul>
+            <li *ngFor="let bullet of item.bullets">{{ bullet }}</li>
+          </ul>
         </article>
       </div>
 
@@ -176,19 +223,38 @@
         <div>
           <div class="section-label">GET IN TOUCH</div>
           <h2>Let's build something <span>useful</span></h2>
-          <p>For Angular frontend opportunities, collaborations or a conversation about a web project, send a message or connect through the social links.</p>
+          <p>For Angular frontend opportunities, collaborations or a conversation about a web project, send a message or
+            connect through the social links.</p>
 
           <div class="contact-cards">
-            <button class="contact-card" type="button" (click)="copyEmail()"><span>✉</span><div><small>Email</small><strong>{{ email }}</strong></div></button>
-            <a class="contact-card" href="tel:+919912710065"><span>☎</span><div><small>Mobile</small><strong>+91 {{ phone }}</strong></div></a>
-            <div class="contact-card"><span>⌖</span><div><small>Location</small><strong>{{ location }}</strong></div></div>
+            <button class="contact-card" type="button" (click)="copyEmail()"><span>✉</span>
+              <div><small>Email</small><strong>{{ email }}</strong></div>
+            </button>
+            <a class="contact-card" href="tel:+919912710065"><span>☎</span>
+              <div><small>Mobile</small><strong>+91 {{ phone }}</strong></div>
+            </a>
+            <div class="contact-card"><span>⌖</span>
+              <div><small>Location</small><strong>{{ location }}</strong></div>
+            </div>
           </div>
 
           <div class="contact-socials">
-            <a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.name" class="social-circle" [ngClass]="social.icon" [class.selected]="selectedSocial === social.icon" (click)="selectSocial(social.icon)">
-              <svg *ngIf="social.icon === 'instagram'" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
-              <svg *ngIf="social.icon === 'linkedin'" viewBox="0 0 24 24"><path d="M5 8.5V19M5 5.2v.1M10 19v-6.1c0-2.1 1.1-3.4 3-3.4 1.9 0 3 1.2 3 3.4V19M10 10v9"></path></svg>
-              <svg *ngIf="social.icon === 'facebook'" viewBox="0 0 24 24"><path d="M14 8h3V4.5h-3c-2.8 0-4.5 1.7-4.5 4.7V11H7v3.5h2.5V20H13v-5.5h3l.6-3.5H13V9.5c0-1 .3-1.5 1-1.5Z"></path></svg>
+            <a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" rel="noopener noreferrer"
+              [attr.aria-label]="social.name" class="social-circle" [ngClass]="social.icon"
+              [class.selected]="selectedSocial === social.icon" (click)="selectSocial(social.icon)">
+              <svg *ngIf="social.icon === 'instagram'" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+              <svg *ngIf="social.icon === 'linkedin'" viewBox="0 0 24 24">
+                <path d="M5 8.5V19M5 5.2v.1M10 19v-6.1c0-2.1 1.1-3.4 3-3.4 1.9 0 3 1.2 3 3.4V19M10 10v9"></path>
+              </svg>
+              <svg *ngIf="social.icon === 'facebook'" viewBox="0 0 24 24">
+                <path
+                  d="M14 8h3V4.5h-3c-2.8 0-4.5 1.7-4.5 4.7V11H7v3.5h2.5V20H13v-5.5h3l.6-3.5H13V9.5c0-1 .3-1.5 1-1.5Z">
+                </path>
+              </svg>
               <span *ngIf="social.icon === 'naukri'" class="naukri-letter" aria-hidden="true">N</span>
             </a>
           </div>
@@ -196,10 +262,15 @@
 
         <form class="message-card" (ngSubmit)="sendMessage()" #portfolioForm="ngForm" novalidate>
           <div class="form-title"><span>QUICK MESSAGE</span><small>Send directly to Ravi Teja's inbox</small></div>
-          <label>Name<input name="name" [(ngModel)]="contact.name" required autocomplete="name" placeholder="Your name"></label>
-          <label>Email<input name="email" [(ngModel)]="contact.email" required type="email" autocomplete="email" placeholder="you@example.com"></label>
-          <label>Message<textarea name="message" [(ngModel)]="contact.message" required rows="5" placeholder="Tell me about the opportunity..."></textarea></label>
-          <button class="button primary full send-message-button" type="submit" [disabled]="isSendingMessage"><span *ngIf="!isSendingMessage">Send Message →</span><span *ngIf="isSendingMessage"><span class="send-spinner"></span> Sending securely…</span></button>
+          <label>Name<input name="name" [(ngModel)]="contact.name" required autocomplete="name"
+              placeholder="Your name"></label>
+          <label>Email<input name="email" [(ngModel)]="contact.email" required type="email" autocomplete="email"
+              placeholder="you@example.com"></label>
+          <label>Message<textarea name="message" [(ngModel)]="contact.message" required rows="5"
+              placeholder="Tell me about the opportunity..."></textarea></label>
+          <button class="button primary full send-message-button" type="submit" [disabled]="isSendingMessage">
+            Send Message →
+          </button>
         </form>
       </div>
     </section>
@@ -207,9 +278,11 @@
 
   <footer class="footer">
     <div class="section-container footer-inner">
-      <button class="brand" type="button" (click)="scrollTo('home')"><span class="brand-mark">R</span><span>Ravi Teja</span></button>
+      <button class="brand" type="button" (click)="scrollTo('home')"><span class="brand-mark">R</span><span>Ravi
+          Teja</span></button>
       <span class="footer-role">Angular Frontend Developer</span>
-      <div class="footer-nav"><button *ngFor="let item of navItems" type="button" (click)="scrollTo(item.id)">{{ item.label }}</button></div>
+      <div class="footer-nav"><button *ngFor="let item of navItems" type="button" (click)="scrollTo(item.id)">{{
+          item.label }}</button></div>
       <span class="copyright">© 2026 Ravi Teja</span>
       <button class="top-button" type="button" (click)="scrollTo('home')" aria-label="Back to top">↑</button>
     </div>
