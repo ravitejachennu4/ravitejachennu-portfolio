@@ -104,25 +104,25 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   readonly experiences: Experience[] = [
     {
-      period: 'Jan 2023 — Sep 2026',
-      role: 'System Engineer',
-      company: 'TCS',
-      type: 'Frontend / Application Support',
-      bullets: [
-        'Developed and maintained enterprise web experiences using Angular, TypeScript, JavaScript, HTML5, CSS3 and SCSS.',
-        'Implemented responsive UI components, reusable frontend patterns and application enhancements based on business requirements.',
-        'Collaborated with cross-functional teams to troubleshoot defects, improve usability and maintain application quality.'
-      ]
-    },
-    {
       period: 'Jan 2022 — Dec 2022',
       role: 'Assistant System Engineer',
       company: 'TCS',
-      type: 'Application Development & Support',
+      type: 'Frontend / Application Development',
       bullets: [
         'Supported application development, maintenance and issue analysis in an enterprise delivery environment.',
         'Strengthened frontend engineering practices through hands-on work with Angular and web technologies.',
         'Participated in team-based delivery, defect resolution and application support activities.'
+      ]
+    },
+    {
+      period: 'Jan 2023 — Sep 2026',
+      role: 'Systems Engineer',
+      company: 'TCS',
+      type: 'Application Development & Support',
+      bullets: [
+        'Developed and maintained enterprise web experiences using Angular, TypeScript, JavaScript, HTML5, CSS3 and SCSS.',
+        'Implemented responsive UI components, reusable frontend patterns and application enhancements based on business requirements.',
+        'Collaborated with cross-functional teams to troubleshoot defects, improve usability and maintain application quality.'
       ]
     }
   ];
