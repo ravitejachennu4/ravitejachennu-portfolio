@@ -1,0 +1,306 @@
+<section id="projects" class="section-container section-block projects-section" aria-labelledby="projects-title">
+    <div class="projects-heading">
+
+        <div class="projects-heading-content">
+
+            <div class="projects-label">
+                PROJECTS
+                <span></span>
+            </div>
+
+            <h2 id="projects-title">
+                Featured <span>Projects</span>
+            </h2>
+
+            <p>
+                Selected enterprise projects showcasing Angular development,
+                system integration, performance optimization and scalable UI engineering.
+            </p>
+
+        </div>
+
+        <div class="projects-counter" aria-label="Three featured projects">
+            <strong>03</strong>
+            <span>featured projects</span>
+        </div>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+        <button *ngFor="let project of projects; trackBy: trackByProject" type="button" class="project-card"
+            [class]="'project-card accent-' + project.accent" (click)="openProject(project)"
+            [attr.aria-label]="'View details for ' + project.title">
+
+            <span class="project-card-glow"></span>
+
+            <span class="project-card-top">
+                <span class="project-number">
+                    0{{ project.id }}
+                </span>
+
+                <span class="project-arrow" aria-hidden="true">
+                    ↗
+                </span>
+            </span>
+
+
+            <span class="project-eyebrow">
+                {{ project.eyebrow }}
+            </span>
+
+
+            <span class="project-title">
+                {{ project.title }}
+            </span>
+
+
+            <span class="project-domain">
+                {{ project.domain }}
+            </span>
+
+
+            <span class="project-description">
+                {{ project.shortDescription }}
+            </span>
+
+
+            <span class="project-tags">
+
+                <span *ngFor="let technology of project.technologies | slice:0:4">
+                    {{ technology }}
+                </span>
+
+            </span>
+
+
+            <span class="project-card-footer">
+
+                <span>EXPLORE CASE STUDY</span>
+
+                <span class="project-line"></span>
+
+                <span class="project-open">
+                    VIEW DETAILS
+                </span>
+
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECT DETAILS MODAL -->
+
+<div *ngIf="selectedProject as project" class="project-modal" [class.is-closing]="isClosing" role="dialog"
+    aria-modal="true" [attr.aria-labelledby]="'project-modal-title-' + project.id" (click)="closeProject()">
+
+    <div class="project-backdrop"></div>
+
+
+    <article class="project-dialog" (click)="$event.stopPropagation()">
+
+        <div class="modal-scanline"></div>
+
+        <div class="modal-orbit orbit-one"></div>
+        <div class="modal-orbit orbit-two"></div>
+
+
+        <!-- MODAL HEADER -->
+
+        <header class="project-modal-header">
+
+            <div class="modal-heading">
+
+                <div class="modal-index">
+                    PROJECT 0{{ project.id }}
+                </div>
+
+                <div class="modal-eyebrow">
+                    {{ project.eyebrow }}
+                </div>
+
+            </div>
+
+
+            <button type="button" class="modal-close-icon" (click)="closeProject()" aria-label="Close project details">
+
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </header>
+
+
+        <!-- MODAL CONTENT -->
+
+        <div class="project-modal-scroll">
+
+            <div class="project-hero">
+
+                <div class="project-hero-copy">
+
+                    <span class="modal-domain">
+                        {{ project.domain }}
+                    </span>
+
+
+                    <h3 [id]="'project-modal-title-' + project.id">
+                        {{ project.title }}
+                    </h3>
+
+
+                    <p class="modal-role">
+                        {{ project.role }}
+                    </p>
+
+
+                    <p class="modal-overview">
+                        {{ project.overview }}
+                    </p>
+
+                </div>
+
+
+                <!-- ANIMATED PROJECT VISUAL -->
+
+                <div class="project-visual" [class]="'visual-' + project.accent" aria-hidden="true">
+
+                    <div class="visual-ring ring-a"></div>
+
+                    <div class="visual-ring ring-b"></div>
+
+
+                    <div class="visual-core">
+
+                        <span>ANGULAR</span>
+
+                        <strong>+</strong>
+
+                        <span>ENGINEERING</span>
+
+                    </div>
+
+
+                    <div class="visual-node node-a">
+                        API
+                    </div>
+
+                    <div class="visual-node node-b">
+                        UI
+                    </div>
+
+                    <div class="visual-node node-c">
+                        DATA
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TECHNOLOGIES + ENGINEERING FOCUS -->
+
+            <div class="modal-content-grid">
+
+                <section class="modal-panel">
+
+                    <div class="modal-panel-label">
+                        TECHNOLOGY STACK
+                    </div>
+
+                    <div class="modal-tech-list">
+
+                        <span *ngFor="let technology of project.technologies">
+                            {{ technology }}
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <section class="modal-panel">
+
+                    <div class="modal-panel-label">
+                        ENGINEERING FOCUS
+                    </div>
+
+                    <ul class="capability-list">
+
+                        <li *ngFor="let capability of project.capabilities">
+
+                            <span class="list-marker">
+                                +
+                            </span>
+
+                            <span>
+                                {{ capability }}
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+            </div>
+
+
+            <!-- PROJECT CONTRIBUTIONS -->
+
+            <section class="modal-highlights">
+
+                <div class="modal-panel-label">
+                    WHAT I CONTRIBUTED
+                </div>
+
+
+                <div class="highlight-list">
+
+                    <div class="highlight-item" *ngFor="
+              let highlight of project.highlights;
+              let index = index
+            ">
+
+                        <span class="highlight-index">
+                            0{{ index + 1 }}
+                        </span>
+
+                        <p>
+                            {{ highlight }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- MODAL FOOTER -->
+
+        <footer class="project-modal-footer">
+
+            <span>
+                <i></i>
+                CASE STUDY · {{ project.domain }}
+            </span>
+
+
+            <button type="button" class="button secondary small modal-close-button" (click)="closeProject()">
+                Close
+            </button>
+
+        </footer>
+
+    </article>
+
+</div>

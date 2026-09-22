@@ -37,3 +37,7 @@ textarea:focus-visible {
     background: #16c8ff;
     color: #04101d;
 }
+
+body.project-modal-open {
+    overflow: hidden;
+}

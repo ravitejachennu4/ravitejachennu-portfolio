@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ProjectsComponent } from './projects/projects.component';
 
 interface SkillGroup {
   title: string;
@@ -20,7 +21,7 @@ interface Experience {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ProjectsComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
