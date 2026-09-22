@@ -24,6 +24,7 @@ interface Project {
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
+  
 
   readonly projects: Project[] = [
     {
@@ -175,28 +176,36 @@ export class ProjectsComponent {
 
   selectedProject: Project | null = null;
   isClosing = false;
+  private scrollPosition = 0;
 
   openProject(project: Project): void {
-    this.selectedProject = project;
-    this.isClosing = false;
+  this.scrollPosition = window.scrollY;
 
-    document.body.classList.add('project-modal-open');
-  }
+  this.selectedProject = project;
+  this.isClosing = false;
+
+  document.body.classList.add('project-modal-open');
+
+  document.body.style.top = `-${this.scrollPosition}px`;
+}
 
   closeProject(): void {
-    if (!this.selectedProject || this.isClosing) {
-      return;
-    }
-
-    this.isClosing = true;
-
-    window.setTimeout(() => {
-      this.selectedProject = null;
-      this.isClosing = false;
-
-      document.body.classList.remove('project-modal-open');
-    }, 280);
+  if (!this.selectedProject || this.isClosing) {
+    return;
   }
+
+  this.isClosing = true;
+
+  window.setTimeout(() => {
+    this.selectedProject = null;
+    this.isClosing = false;
+
+    document.body.classList.remove('project-modal-open');
+    document.body.style.top = '';
+
+    window.scrollTo(0, this.scrollPosition);
+  }, 280);
+}
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
@@ -204,8 +213,9 @@ export class ProjectsComponent {
   }
 
   ngOnDestroy(): void {
-    document.body.classList.remove('project-modal-open');
-  }
+  document.body.classList.remove('project-modal-open');
+  document.body.style.top = '';
+}
 
   trackByProject(_: number, project: Project): number {
     return project.id;

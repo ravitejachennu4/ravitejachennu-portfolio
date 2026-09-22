@@ -1657,12 +1657,23 @@
     }
 
     .hero h1 {
-        max-width: 100%;
-        font-size: 58px;
+    width: 100%;
+    max-width: 100%;
+    margin: 16px auto 12px;
 
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
+    font-size: clamp(40px, 12.5vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -0.055em;
+
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+
+    padding: 0 2px 8px;
+    box-sizing: border-box;
+
+    overflow: visible;
+}
 
     .typing-title {
         max-width: 100%;
@@ -1930,9 +1941,16 @@
 
     .hero {
         width: 100%;
-        overflow: hidden;
+         overflow-x: clip;
+    overflow-y: visible;
     }
 
+    .hero h1 {
+    font-size: clamp(36px, 12vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+    padding-bottom: 9px;
+}
     .hero-content {
         width: 100%;
     }

@@ -39,5 +39,7 @@ textarea:focus-visible {
 }
 
 body.project-modal-open {
+    position: fixed;
+    width: 100%;
     overflow: hidden;
 }
